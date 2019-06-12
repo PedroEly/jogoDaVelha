@@ -14,7 +14,7 @@ public class Interf extends javax.swing.JFrame {
 
     String marca = "X";
     int marcaBin = 1;
-    int matriz[][] = new int[3][3];
+    int tab[] = new int[10];
     int num = 0;
     int m, n;
 
@@ -34,26 +34,26 @@ public class Interf extends javax.swing.JFrame {
     
     }
     
-    public void jogar(int i, int j, int x){
+    public void jogar(int i, int x){
         num++;
-        matriz[i][j] = x;
+        tab[i] = x;
         
         switch (num){
         
             case 1:
-                jogada1(i,j);
+                jogada1(i);
                 
                 break;
             case 2:
-                jogada2(i,j);
+                jogada2(i);
                 
                 break;
             case 3:
-                jogada3(i,j);
+                jogada3(i);
                 
                 break;
             case 4:
-                jogada4(i,j);
+                jogada4(i);
                 
                 break;
                     
@@ -62,41 +62,32 @@ public class Interf extends javax.swing.JFrame {
         
     }
     
-    public void jogada1(int i, int j){
+    public void jogada1(int i){
         
-        //Se jogou nos cantos ele joga no meio
-        if(i == 0 && j == 0){ m = 1; n = 1;}
-        else if(i == 0 && j == 2){ m = 1; n = 1;}
-        else if(i == 2 && j == 0){ m = 1; n = 1;}
-        else if(i == 2 && j == 2){ m = 1; n = 1;}
-        else if(i == 1 && j == 1){ m = 0; n = 0;}
-        else if(i == 0 && j == 1){ m = 1; n = 1;}
-        else if(i == 1 && j == 0){ m = 1; n = 1;}
-        else if(i == 1 && j == 2){ m = 1; n = 1;}
-        else if(i == 2 && j == 1){ m = 1; n = 1;}
-        
+        if(i == 5 ){ m = 1;}
+        else{m = 5;} 
         
     }
-    public void jogada2(int i, int j){
+    public void jogada2(int i){
         
     }
     
-    public void jogada3(int i, int j){
+    public void jogada3(int i){
     }
     
-    public void jogada4(int i, int j){
+    public void jogada4(int i){
     }
     
-    public void jogou(int k, int l){
-        if(k == 0 && l == 0){Casa1.setText(marca); matriz[0][0] = marcaBin;}
-        else if(k == 0 && l == 1){Casa2.setText(marca); matriz[0][1] = marcaBin;}
-        else if(k == 0 && l == 2){Casa3.setText(marca); matriz[0][2] = marcaBin;}
-        else if(k == 1 && l == 0){Casa4.setText(marca); matriz[1][0] = marcaBin;}
-        else if(k == 1 && l == 1){Casa5.setText(marca); matriz[1][1] = marcaBin;}
-        else if(k == 1 && l == 2){Casa6.setText(marca); matriz[1][2] = marcaBin;}
-        else if(k == 2 && l == 0){Casa7.setText(marca); matriz[2][0] = marcaBin;}
-        else if(k == 2 && l == 1){Casa8.setText(marca); matriz[2][1] = marcaBin;}
-        else if(k == 2 && l == 2){Casa9.setText(marca); matriz[2][2] = marcaBin;}
+    public void jogou(int k){
+        if(k == 1 ){Casa1.setText(marca); tab[1] = marcaBin;}
+        else if(k == 2 ){Casa2.setText(marca); tab[2] = marcaBin;}
+        else if(k == 3 ){Casa3.setText(marca); tab[3] = marcaBin;}
+        else if(k == 4 ){Casa4.setText(marca); tab[4] = marcaBin;}
+        else if(k == 5 ){Casa5.setText(marca); tab[5] = marcaBin;}
+        else if(k == 6 ){Casa6.setText(marca); tab[6] = marcaBin;}
+        else if(k == 7 ){Casa7.setText(marca); tab[7] = marcaBin;}
+        else if(k == 8 ){Casa8.setText(marca); tab[8] = marcaBin;}
+        else if(k == 9 ){Casa9.setText(marca); tab[9] = marcaBin;}
         
         change();
     }
@@ -248,90 +239,90 @@ public class Interf extends javax.swing.JFrame {
          
             if (Casa1.getText().equals("")) {
                 Casa1.setText(marca);
-                matriz[0][0] = marcaBin;
-                jogar( 0, 0, marcaBin);
+                tab[1] = marcaBin;
+                jogar( 1, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa1ActionPerformed
 
     private void Casa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa2ActionPerformed
         if (Casa2.getText().equals("")) {
                 Casa2.setText(marca);
-                matriz[0][1] = marcaBin;
-                jogar( 0, 1, marcaBin);
+                tab[2] = marcaBin;
+                jogar( 2, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa2ActionPerformed
 
     private void Casa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa3ActionPerformed
         if (Casa3.getText().equals("")) {
                 Casa3.setText(marca);
-                matriz[0][2] = marcaBin;
-                jogar( 0, 2, marcaBin);
+                tab[3] = marcaBin;
+                jogar( 3, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa3ActionPerformed
 
     private void Casa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa4ActionPerformed
         if (Casa4.getText().equals("")) {
                 Casa4.setText(marca);
-                matriz[1][0] = marcaBin;
-                jogar( 1, 0, marcaBin);
+                tab[4] = marcaBin;
+                jogar( 4, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa4ActionPerformed
 
     private void Casa5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa5ActionPerformed
         if (Casa5.getText().equals("")) {
                 Casa5.setText(marca);
-                matriz[1][1] = marcaBin;
-                jogar( 1, 1, marcaBin);
+                tab[5] = marcaBin;
+                jogar( 5, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa5ActionPerformed
 
     private void Casa6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa6ActionPerformed
         if (Casa6.getText().equals("")) {
                 Casa6.setText(marca);
-                matriz[1][2] = marcaBin;
-                jogar( 1, 2, marcaBin);
+                tab[6] = marcaBin;
+                jogar( 6, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa6ActionPerformed
 
     private void Casa7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa7ActionPerformed
         if (Casa7.getText().equals("")) {
                 Casa7.setText(marca);
-                matriz[2][0] = marcaBin;
-                jogar( 2, 0, marcaBin);
+                tab[7] = marcaBin;
+                jogar( 7, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa7ActionPerformed
 
     private void Casa8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa8ActionPerformed
         if (Casa8.getText().equals("")) {
                 Casa8.setText(marca);
-                matriz[2][1] = marcaBin;
-                jogar( 2, 1, marcaBin);
+                tab[8] = marcaBin;
+                jogar( 8, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
     }//GEN-LAST:event_Casa8ActionPerformed
 
     private void Casa9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa9ActionPerformed
         if (Casa9.getText().equals("")) {
                 Casa9.setText(marca);
-                matriz[2][2] = marcaBin;
-                jogar( 2, 2, marcaBin);
+                tab[9] = marcaBin;
+                jogar( 9, marcaBin);
                 change();
-                jogou(m,n);
+                jogou(m);
             }
         
     }//GEN-LAST:event_Casa9ActionPerformed
