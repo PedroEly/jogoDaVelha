@@ -69,7 +69,44 @@ public class Interf extends javax.swing.JFrame {
         
     }
     public void jogada2(int i){
-        
+        if(tab[5] == 1){ 
+            if(i%2 == 0){
+                if(i == 2){m = 8;}
+                else if(i == 4){m = 6;}
+                else if(i == 6){m = 4;}
+                else if(i == 8){m = 2;}
+            }else{
+                if(i == 3){m = 7;}
+                else if(i == 7){m = 3;}
+                else if(i == 9){m = 3;}
+            }
+            
+        }else{ 
+            if(tab[1] == 1 || tab[3] == 1 || tab[7] == 1 || tab[9] == 1){
+                if(i%2 == 0){
+                    if(i == 2){m = 8;}
+                    
+                }else if(i == 5){
+                    if(i == 3){m = 7;}
+                    
+                }else{
+                    if(i == 3){m = 7;}
+                
+                }
+            }else{
+                if(i%2 == 0){
+                    if(i == 2){m = 8;}
+                    
+                }else if(i == 5){
+                    if(i == 3){m = 7;}
+                    
+                }else{
+                    if(i == 3){m = 7;}
+                
+                }
+            
+            }
+        }
     }
     
     public void jogada3(int i){
