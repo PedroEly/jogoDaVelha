@@ -1,10 +1,5 @@
 package jogodavelha;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -12,121 +7,36 @@ package jogodavelha;
  */
 public class Interf extends javax.swing.JFrame {
 
-    String marca = "X";
-    int marcaBin = 1;
-    int tab[] = new int[10];
-    int num = 0;
-    int m, n;
-
-    public Interf() {
+    
+    private static Interf interf;
+    public Jogo p;
+    private Interf() {
         
         initComponents();
     }
     
-    public void change(){
-        if(marca.equals("X")) {
-            marca = "O";
-            marcaBin = 2;
-        }else {
-            marca = "X";
-            marcaBin = 1;
-        }
-    
+    public static Interf getInstance(){
+        if (interf == null)
+            interf = new Interf();
+ 
+        return interf;
+    }
+    public void recebe(Jogo pu){
+        p = pu;
     }
     
-    public void jogar(int i, int x){
-        num++;
-        tab[i] = x;
+    public void jogou(String c, int k){
         
-        switch (num){
+            if(k == 0 ){Casa1.setText(c); }
+            else if(k == 1 ){Casa2.setText(c);}
+            else if(k == 2 ){Casa3.setText(c);}
+            else if(k == 3 ){Casa4.setText(c);}
+            else if(k == 4 ){Casa5.setText(c);}
+            else if(k == 5 ){Casa6.setText(c);}
+            else if(k == 6 ){Casa7.setText(c);}
+            else if(k == 7 ){Casa8.setText(c);}
+            else if(k == 8 ){Casa9.setText(c);}
         
-            case 1:
-                jogada1(i);
-                
-                break;
-            case 2:
-                jogada2(i);
-                
-                break;
-            case 3:
-                jogada3(i);
-                
-                break;
-            case 4:
-                jogada4(i);
-                
-                break;
-                    
-        
-        }
-        
-    }
-    
-    public void jogada1(int i){
-        
-        if(i == 5 ){ m = 1;}
-        else{m = 5;} 
-        
-    }
-    public void jogada2(int i){
-        if(tab[5] == 1){ 
-            if(i%2 == 0){
-                if(i == 2){m = 8;}
-                else if(i == 4){m = 6;}
-                else if(i == 6){m = 4;}
-                else if(i == 8){m = 2;}
-            }else{
-                if(i == 3){m = 7;}
-                else if(i == 7){m = 3;}
-                else if(i == 9){m = 3;}
-            }
-            
-        }else{ 
-            if(tab[1] == 1 || tab[3] == 1 || tab[7] == 1 || tab[9] == 1){
-                if(i%2 == 0){
-                    if(i == 2){m = 8;}
-                    
-                }else if(i == 5){
-                    if(i == 3){m = 7;}
-                    
-                }else{
-                    if(i == 3){m = 7;}
-                
-                }
-            }else{
-                if(i%2 == 0){
-                    if(i == 2){m = 8;}
-                    
-                }else if(i == 5){
-                    if(i == 3){m = 7;}
-                    
-                }else{
-                    if(i == 3){m = 7;}
-                
-                }
-            
-            }
-        }
-    }
-    
-    public void jogada3(int i){
-    }
-    
-    public void jogada4(int i){
-    }
-    
-    public void jogou(int k){
-        if(k == 1 ){Casa1.setText(marca); tab[1] = marcaBin;}
-        else if(k == 2 ){Casa2.setText(marca); tab[2] = marcaBin;}
-        else if(k == 3 ){Casa3.setText(marca); tab[3] = marcaBin;}
-        else if(k == 4 ){Casa4.setText(marca); tab[4] = marcaBin;}
-        else if(k == 5 ){Casa5.setText(marca); tab[5] = marcaBin;}
-        else if(k == 6 ){Casa6.setText(marca); tab[6] = marcaBin;}
-        else if(k == 7 ){Casa7.setText(marca); tab[7] = marcaBin;}
-        else if(k == 8 ){Casa8.setText(marca); tab[8] = marcaBin;}
-        else if(k == 9 ){Casa9.setText(marca); tab[9] = marcaBin;}
-        
-        change();
     }
     
     /**
@@ -148,7 +58,6 @@ public class Interf extends javax.swing.JFrame {
         Casa8 = new javax.swing.JButton();
         Casa7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        restart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,16 +117,14 @@ public class Interf extends javax.swing.JFrame {
 
         jLabel1.setText("Jogo da Velha");
 
-        restart.setText("Restart");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -230,9 +137,7 @@ public class Interf extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Casa7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(restart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Casa8, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))))
+                                .addComponent(Casa8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Casa9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,16 +145,16 @@ public class Interf extends javax.swing.JFrame {
                                 .addComponent(Casa3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Casa6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
+                        .addGap(101, 101, 101)
                         .addComponent(jLabel1)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Casa2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Casa1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,103 +169,63 @@ public class Interf extends javax.swing.JFrame {
                     .addComponent(Casa7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Casa8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Casa9, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
-                .addComponent(restart)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Casa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa1ActionPerformed
-         
-            if (Casa1.getText().equals("")) {
-                Casa1.setText(marca);
-                tab[1] = marcaBin;
-                jogar( 1, marcaBin);
-                change();
-                jogou(m);
-            }
+                
+        p.jogada(0,0);      
     }//GEN-LAST:event_Casa1ActionPerformed
 
     private void Casa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa2ActionPerformed
-        if (Casa2.getText().equals("")) {
-                Casa2.setText(marca);
-                tab[2] = marcaBin;
-                jogar( 2, marcaBin);
-                change();
-                jogou(m);
-            }
+
+        p.jogada(0,1);
+      
     }//GEN-LAST:event_Casa2ActionPerformed
 
     private void Casa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa3ActionPerformed
-        if (Casa3.getText().equals("")) {
-                Casa3.setText(marca);
-                tab[3] = marcaBin;
-                jogar( 3, marcaBin);
-                change();
-                jogou(m);
-            }
+    
+        p.jogada(0,2);
+     
     }//GEN-LAST:event_Casa3ActionPerformed
 
     private void Casa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa4ActionPerformed
-        if (Casa4.getText().equals("")) {
-                Casa4.setText(marca);
-                tab[4] = marcaBin;
-                jogar( 4, marcaBin);
-                change();
-                jogou(m);
-            }
+  
+        p.jogada(1,0);
+      
     }//GEN-LAST:event_Casa4ActionPerformed
 
     private void Casa5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa5ActionPerformed
-        if (Casa5.getText().equals("")) {
-                Casa5.setText(marca);
-                tab[5] = marcaBin;
-                jogar( 5, marcaBin);
-                change();
-                jogou(m);
-            }
+   
+        p.jogada(1,1);
+     
     }//GEN-LAST:event_Casa5ActionPerformed
 
     private void Casa6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa6ActionPerformed
-        if (Casa6.getText().equals("")) {
-                Casa6.setText(marca);
-                tab[6] = marcaBin;
-                jogar( 6, marcaBin);
-                change();
-                jogou(m);
-            }
+        p.jogada(1,2);
+
     }//GEN-LAST:event_Casa6ActionPerformed
 
     private void Casa7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa7ActionPerformed
-        if (Casa7.getText().equals("")) {
-                Casa7.setText(marca);
-                tab[7] = marcaBin;
-                jogar( 7, marcaBin);
-                change();
-                jogou(m);
-            }
+
+        p.jogada(2,0);
     }//GEN-LAST:event_Casa7ActionPerformed
 
     private void Casa8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa8ActionPerformed
-        if (Casa8.getText().equals("")) {
-                Casa8.setText(marca);
-                tab[8] = marcaBin;
-                jogar( 8, marcaBin);
-                change();
-                jogou(m);
-            }
+        
+        p.jogada(2,1);     
     }//GEN-LAST:event_Casa8ActionPerformed
 
     private void Casa9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casa9ActionPerformed
-        if (Casa9.getText().equals("")) {
-                Casa9.setText(marca);
-                tab[9] = marcaBin;
-                jogar( 9, marcaBin);
-                change();
-                jogou(m);
-            }
+        
+        p.jogada(2,2);
+                
+                
+                
+            
         
     }//GEN-LAST:event_Casa9ActionPerformed
 
@@ -390,6 +255,37 @@ public class Interf extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interf.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -410,6 +306,5 @@ public class Interf extends javax.swing.JFrame {
     private javax.swing.JButton Casa8;
     private javax.swing.JButton Casa9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton restart;
     // End of variables declaration//GEN-END:variables
 }
